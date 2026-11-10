@@ -1,10 +1,3 @@
-"""Boxplot do projeto Números que Falam (Persona 6).
-
-Usa os módulos que já existem no repositório (ibge_api.py e etl.py).
-Rodar sozinho:   streamlit run boxplot.py
-Integrar ao painel:   from boxplot import render_boxplot
-"""
-
 import plotly.express as px
 import streamlit as st
 
@@ -69,9 +62,7 @@ def render_boxplot():
 
     df["regiao"] = df["localidade"].apply(regiao_da_uf)
 
-    ordem = (
-        df.groupby("localidade")["valor"].median().sort_values().index.tolist()
-    )
+    ordem = df.groupby("localidade")["valor"].median().sort_values().index.tolist()
 
     fig = px.box(
         df,
