@@ -1,4 +1,4 @@
-# Números que Falam — Boxplots (IBGE)
+ Boxplots (IBGE)
 
 Repositório que reúne dois trabalhos com dados públicos do IBGE (PNAD Contínua), cada um com seu boxplot em Streamlit.
 
