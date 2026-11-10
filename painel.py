@@ -3,10 +3,9 @@ import plotly.express as px
 import streamlit as st
 
 from boxplot import render_boxplot
-from app import render as render_trabalho
 
 st.set_page_config(
-    page_title="Números que Falam — Painel IBGE",
+    page_title="Boxplots IBGE — Trabalho e Escolaridade",
     page_icon="📊",
     layout="wide",
 )
@@ -83,16 +82,16 @@ def render_escolaridade():
     )
 
 
-st.title("📊 Números que Falam — Painel IBGE")
+st.title("📊 Boxplots IBGE")
 st.caption(
-    "Painel único com os dois boxplots e o dashboard completo, sobre dados públicos "
-    "da PNAD Contínua. Todos os dados vêm ao vivo da API do IBGE."
+    "Dois recortes sobre dados públicos da PNAD Contínua: o mercado de trabalho "
+    "por unidade da federação e a escolaridade no Sudeste. Os dados vêm ao vivo "
+    "da API do IBGE."
 )
 
-aba_trabalho, aba_escolaridade, aba_completo = st.tabs([
+aba_trabalho, aba_escolaridade = st.tabs([
     "📦 Trabalho por UF",
     "🎓 Escolaridade no Sudeste",
-    "📈 Dashboard completo",
 ])
 
 with aba_trabalho:
@@ -103,6 +102,3 @@ with aba_escolaridade:
         render_escolaridade()
     except Exception as erro:
         st.error(f"Erro ao montar a aba de escolaridade: {erro}")
-
-with aba_completo:
-    render_trabalho()
